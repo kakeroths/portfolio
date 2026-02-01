@@ -18,8 +18,20 @@ position: relative;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
+flex-wrap: wrap;
+padding: 2rem;
+box-sizing: border-box;
 
-
+@media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+    overflow-y: auto;
+    height: 100vh;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+}
 `
 
 const Main = styled.div`
@@ -32,15 +44,50 @@ height: 60vh;
 z-index:3;
 line-height: 1.5;
 cursor: pointer;
+margin: 1rem;
+box-sizing: border-box;
+overflow-y: auto;
+overflow-x: hidden;
 
 font-family: 'Ubuntu Mono',monospace;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
 
 &:hover{
     color: ${props => props.theme.body};
     background-color: ${props => props.theme.text};
+}
+
+/* Custom scrollbar */
+&::-webkit-scrollbar {
+    width: 6px;
+}
+
+&::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+&::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.text};
+    border-radius: 3px;
+}
+
+&:hover::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.body};
+}
+
+@media (max-width: 768px) {
+    width: 90vw;
+    height: 45vh;
+    margin: 1rem 0;
+    padding: 1.5rem;
+}
+
+@media (max-width: 480px) {
+    width: 95vw;
+    height: 40vh;
+    padding: 1rem;
+    margin: 0.5rem 0;
 }
 `
 
@@ -49,6 +96,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 font-size: calc(1em + 1vw);
+margin-bottom: 1rem;
 
 ${Main}:hover &{
     &>*{
@@ -59,26 +107,55 @@ ${Main}:hover &{
 &>*:first-child{
 margin-right: 1rem;
 }
+
+@media (max-width: 768px) {
+    font-size: calc(0.8em + 2vw);
+    flex-direction: column;
+    text-align: center;
+    
+    &>*:first-child{
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+}
 `
 
 const Description = styled.div`
 color: ${props => props.theme.text};
 font-size: calc(0.6em + 1vw);
 padding: 0.5rem 0;
-
+margin-bottom: 1rem;
+flex-shrink: 0;
 
 ${Main}:hover &{
-   
-        color:${props => props.theme.body};
-    
+    color:${props => props.theme.body};
 }
 
 strong{
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
+    display: block;
+    font-weight: 600;
 }
+
 ul,p{
-    margin-left: 2rem;
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+    line-height: 1.4;
+}
+
+p {
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    font-size: calc(0.7em + 1.5vw);
+}
+
+@media (max-width: 480px) {
+    font-size: calc(0.8em + 2vw);
+    margin-bottom: 0.8rem;
 }
 `
 
