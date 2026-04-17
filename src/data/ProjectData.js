@@ -7,14 +7,7 @@ export const Projects = [
         date: "2024 - 2025",
         demo: "https://coupleconnect-production-67d9.up.railway.app/",
     },
-    {
-        id: 2,
-        name: "TiffinBox",
-        description: "Home food delivery platform connecting local home cooks with nearby customers. Features real-time order tracking, role-based auth, Razorpay payments, and location-based cook discovery.",
-        tags: ["react", "node.js", "socket.io", "mongodb", "razorpay", "cloudinary", "jwt"],
-        date: "2024 - 2025",
-        demo: "https://tiffinlane.up.railway.app/",
-    },
+    
     {
         id: 3,
         name: "Apna Interior",
